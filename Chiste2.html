@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cargando archivo pesado...</title>
+    <style>
+        body {
+            background-color: #0e0e0e;
+            color: #00ff00;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+
+        #loader-container {
+            width: 80%;
+            max-width: 400px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 25px;
+            background-color: #333;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 20px;
+            border: 1px solid #00ff00;
+        }
+
+        .progress-fill {
+            height: 100%;
+            width: 0%;
+            background-color: #00ff00;
+            transition: width 0.1s;
+        }
+
+        #status {
+            margin-top: 10px;
+            font-size: 1.2rem;
+        }
+
+        #final-content {
+            display: none;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.5); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .emoji-gigante {
+            font-size: 80px;
+            margin-bottom: 20px;
+        }
+
+        .mensaje {
+            font-size: 2.5rem;
+            color: #ff0055;
+            font-weight: bold;
+            text-shadow: 2px 2px #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="loader-container">
+        <h2 id="title">DESCARGANDO CONTENIDO...</h2>
+        <div class="progress-bar">
+            <div id="fill" class="progress-fill"></div>
+        </div>
+        <div id="status">0%</div>
+    </div>
+
+    <div id="final-content">
+        <div class="emoji-gigante">🤡</div>
+        <div class="mensaje">MMERPIPE ANDA</div>
+    </div>
+
+    <script>
+        let progress = 0;
+        const fill = document.getElementById('fill');
+        const status = document.getElementById('status');
+        const loader = document.getElementById('loader-container');
+        const final = document.getElementById('final-content');
+        const title = document.getElementById('title');
+
+        const phrases = [
+            "Conectando al servidor...",
+            "Buscando archivos ocultos...",
+            "Descifrando datos...",
+            "Casi listo...",
+            "¡COMPLETADO!"
+        ];
+
+        function startLoading() {
+            const interval = setInterval(() => {
+                // Incremento aleatorio para que parezca real
+                progress += Math.floor(Math.random() * 5) + 1;
+                
+                if (progress >= 100) {
+                    progress = 100;
+                    clearInterval(interval);
+                    showFinal();
+                }
+
+                fill.style.width = progress + "%";
+                status.innerText = progress + "%";
+                
+                // Cambiar frases según el progreso
+                if(progress > 20) title.innerText = phrases[1];
+                if(progress > 50) title.innerText = phrases[2];
+                if(progress > 80) title.innerText = phrases[3];
+                if(progress == 100) title.innerText = phrases[4];
+
+            }, 100);
+        }
+
+        function showFinal() {
+            setTimeout(() => {
+                loader.style.display = 'none';
+                final.style.display = 'block';
+                document.body.style.backgroundColor = "#fff"; // Cambio de color para shock
+            }, 500);
+        }
+
+        window.onload = startLoading;
+    </script>
+</body>
+</html>
