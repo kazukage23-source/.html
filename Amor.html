@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para mi amada Liliana</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(circle, #200101 0%, #000000 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+            color: white;
+            text-align: center;
+        }
+
+        /* Flor animada */
+        .flower-container {
+            position: relative;
+            animation: float 3s ease-in-out infinite;
+            margin-bottom: 20px;
+            z-index: 10;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(-1deg); }
+            50% { transform: translateY(-15px) rotate(1deg); }
+        }
+
+        .rose-head {
+            width: 70px;
+            height: 70px;
+            background: radial-gradient(circle, #ff1e1e 20%, #8b0000 90%);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            box-shadow: 0 0 40px rgba(255, 0, 0, 0.7);
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .stem {
+            width: 6px;
+            height: 100px;
+            background: linear-gradient(to bottom, #2e7d32, #1b5e20);
+            margin: -5px auto 0;
+            border-radius: 0 0 10px 10px;
+        }
+
+        /* Textos */
+        h1 {
+            font-size: 2.5rem;
+            color: #ffffff;
+            margin: 10px 0;
+            z-index: 10;
+        }
+
+        .main-phrase {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ff4d6d;
+            text-shadow: 0 0 15px rgba(255, 77, 109, 0.8);
+            margin: 10px 0;
+            display: block;
+            z-index: 10;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .dedication {
+            font-size: 1.1rem;
+            max-width: 85%;
+            margin: 0 auto;
+            line-height: 1.6;
+            font-style: italic;
+            color: #ffccd5;
+            z-index: 10;
+        }
+
+        /* Corazones y Pétalos */
+        .heart, .petal {
+            position: absolute;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .heart {
+            color: rgba(255, 77, 109, 0.4);
+            font-size: 20px;
+            animation: rise linear forwards;
+        }
+
+        .petal {
+            background-color: #ff4d4d;
+            border-radius: 150% 0 150% 0;
+            opacity: 0.6;
+            animation: fall linear forwards;
+        }
+
+        @keyframes rise {
+            0% { transform: translateY(110vh) scale(0); opacity: 0; }
+            50% { opacity: 0.8; }
+            100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(-10vh) rotate(0deg); }
+            100% { transform: translateY(110vh) rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="flower-container">
+        <div class="rose-head"></div>
+        <div class="stem"></div>
+    </div>
+    
+    <h1>Para Liliana</h1>
+    
+    <span class="main-phrase">TE AMO MUCHO MI LOCA 💘</span>
+
+    <p class="dedication">
+        "El amor no cuenta años, cuenta latidos.<br> 
+        Gracias por ser mi esposa y mi vida entera."
+    </p>
+
+    <script>
+        function createElement(type) {
+            const el = document.createElement('div');
+            if (type === 'heart') {
+                el.classList.add('heart');
+                el.innerHTML = '❤';
+                el.style.left = Math.random() * 100 + 'vw';
+                el.style.fontSize = (Math.random() * 20 + 10) + 'px';
+                el.style.animationDuration = (Math.random() * 3 + 4) + 's';
+            } else {
+                el.classList.add('petal');
+                el.style.left = Math.random() * 100 + 'vw';
+                el.style.width = Math.random() * 12 + 8 + 'px';
+                el.style.height = el.style.width;
+                el.style.animationDuration = (Math.random() * 3 + 3) + 's';
+            }
+            document.body.appendChild(el);
+            setTimeout(() => { el.remove(); }, 6000);
+        }
+
+        setInterval(() => createElement('heart'), 400);
+        setInterval(() => createElement('petal'), 600);
+    </script>
+</body>
+</html>
