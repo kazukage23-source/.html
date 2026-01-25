@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡ATENCIÓN! MENSAJE URGENTE PARA TI</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        h1 {
+            color: #ffcc00;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+            animation: pulseText 1.5s infinite;
+        }
+
+        @keyframes pulseText {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .video-container {
+            margin-top: 30px;
+            border: 5px solid #ffcc00;
+            box-shadow: 0 0 20px rgba(255, 204, 0, 0.7);
+            max-width: 90%;
+            height: auto;
+            display: block; /* Para centrar y ajustar */
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 315px; /* Altura estándar de YouTube, se ajustará */
+            display: block;
+        }
+
+        .mensaje-final {
+            margin-top: 40px;
+            font-size: 3rem;
+            font-weight: bold;
+            color: #00ff00; /* Verde brillante para destacar */
+            text-shadow: 3px 3px 8px rgba(0,255,0,0.7);
+            animation: bounceIn 1s ease-out forwards;
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.1); opacity: 1; }
+            70% { transform: scale(0.9); }
+            100% { transform: scale(1); }
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 1.8rem; }
+            .video-container iframe { height: 200px; } /* Ajustar para móviles */
+            .mensaje-final { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>¡ALERTA MÁXIMA! ¡TIENES UN MENSAJE CLASIFICADO!</h1>
+
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&controls=0&mute=0" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen></iframe>
+    </div>
+
+    <div class="mensaje-final">
+        MMERPIPE ANDA
+    </div>
+
+</body>
+</html>
