@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para mi Loca Hermosa</title>
+    <style>
+        body {
+            margin: 0;
+            background: #000;
+            color: white;
+            font-family: 'serif';
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        /* El Pétalo en el centro */
+        .petalo-unico {
+            width: 100px;
+            height: 100px;
+            background: #ff0000;
+            border-radius: 80% 0 80% 0;
+            box-shadow: 0 0 30px #ff0000;
+            transform: rotate(-45deg);
+            animation: flotar 3s ease-in-out infinite;
+            margin-bottom: 30px;
+        }
+
+        @keyframes flotar {
+            0%, 100% { transform: rotate(-45deg) translateY(0); }
+            50% { transform: rotate(-40deg) translateY(-20px); }
+        }
+
+        h1 { color: #ff4d6d; font-size: 2.5rem; margin-bottom: 10px; }
+
+        .poema {
+            font-style: italic;
+            font-size: 1.1rem;
+            max-width: 80%;
+            color: #ccc;
+            line-height: 1.5;
+        }
+
+        .final {
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: #ff4d6d;
+            margin-top: 20px;
+            display: block;
+        }
+
+        .corazon {
+            position: absolute;
+            color: rgba(255, 0, 0, 0.5);
+            animation: subir linear forwards;
+        }
+
+        @keyframes subir {
+            0% { transform: translateY(100vh); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateY(-10vh); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="petalo-unico"></div>
+
+    <h1>Para Liliana</h1>
+
+    <p class="poema">
+        "El tiempo es solo un testigo mudo de este amor sin fin.<br>
+        En cada latido de mi alma llevas tu nombre,<br>
+        mi universo y mi eterna inspiración."
+    </p>
+
+    <span class="final">TE AMARÉ SIEMPRE<br>MI LOCA HERMOSA 💘</span>
+
+    <script>
+        function crearCorazon() {
+            const h = document.createElement('div');
+            h.className = 'corazon';
+            h.innerHTML = '❤';
+            h.style.left = Math.random() * 100 + 'vw';
+            h.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            document.body.appendChild(h);
+            setTimeout(() => h.remove(), 4000);
+        }
+        setInterval(crearCorazon, 300);
+    </script>
+</body>
+</html>
