@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eternamente Liliana</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(circle at center, #2c0303 0%, #000 100%);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Times New Roman', serif;
+            overflow: hidden;
+            color: #fff;
+            text-align: center;
+        }
+
+        /* El Pétalo Central */
+        .petal-center {
+            width: 120px;
+            height: 120px;
+            background: #d4001d;
+            border-radius: 80% 10% 80% 10%;
+            box-shadow: inset -10px -10px 20px rgba(0,0,0,0.5), 0 0 30px rgba(212, 0, 29, 0.4);
+            transform: rotate(45deg);
+            margin-bottom: 40px;
+            animation: floatPetal 4s ease-in-out infinite;
+            position: relative;
+        }
+
+        @keyframes floatPetal {
+            0%, 100% { transform: rotate(45deg) translateY(0) scale(1); }
+            50% { transform: rotate(50deg) translateY(-20px) scale(1.05); }
+        }
+
+        /* Mensajes */
+        h1 {
+            font-family: 'Georgia', serif;
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+            color: #f8bbd0;
+        }
+
+        .poet-text {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            max-width: 85%;
+            margin: 15px auto;
+            color: #e0e0e0;
+            font-style: italic;
+        }
+
+        .highlight {
+            font-size: 1.8rem;
+            display: block;
+            margin-top: 20px;
+            color: #ff4d6d;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(255, 77, 109, 0.5);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.8; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.03); }
+            100% { opacity: 0.8; transform: scale(1); }
+        }
+
+        /* Lluvia de corazones suaves */
+        .heart {
+            position: absolute;
+            color: rgba(255, 182, 193, 0.3);
+            pointer-events: none;
+            z-index: -1;
+            animation: drift linear forwards;
+        }
+
+        @keyframes drift {
+            0% { transform: translateY(110vh) translateX(0) rotate(0deg); opacity: 0; }
+            20% { opacity: 0.5; }
+            100% { transform: translateY(-10vh) translateX(50px) rotate(360deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="petal-center"></div>
+
+    <h1>Para Liliana</h1>
+
+    <div class="poet-text">
+        "El tiempo es solo un testigo mudo de este amor sin fin. <br>
+        En cada latido de mi alma llevas tu nombre, <br>
+        mi universo y mi eterna inspiración. <br>
+        Eres el poema más bello que habito."
+    </div>
+
+    <span class="highlight">TE AMARÉ SIEMPRE <br> MI LOCA HERMOSA 💘</span>
+
+    <script>
+        function createHeart() {
+            const h = document.createElement('div');
+            h.classList.add('heart');
+            h.innerHTML = '❤';
+            h.style.left = Math.random() * 100 + 'vw';
+            h.style.fontSize = Math.random() * 25 + 10 + 'px';
+            h.style.animationDuration = Math.random() * 5 + 5 + 's';
+            document.body.appendChild(h);
+            setTimeout(() => h.remove(), 10000);
+        }
+        setInterval(createHeart, 500);
+    </script>
+</body>
+</html>
