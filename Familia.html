@@ -1,0 +1,138 @@
+<!<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Feliz día de San Valentín</title>
+    <style>
+        :root {
+            --warm-bg: #fdfaf5;
+            --deep-blue: #1a2a3a;
+            --accent-gold: #b08d57;
+            --soft-gray: #7f8c8d;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--warm-bg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Georgia', serif;
+        }
+
+        .container {
+            max-width: 550px;
+            padding: 40px;
+            background: white;
+            border-radius: 4px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+            text-align: center;
+            border-top: 6px solid var(--accent-gold);
+            animation: fadeIn 2s ease-in-out;
+            position: relative;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .emblem {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--accent-gold);
+        }
+
+        h1 {
+            color: var(--deep-blue);
+            font-weight: 400;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        .content {
+            color: #333;
+            line-height: 1.8;
+            font-size: 1.15rem;
+            text-align: justify;
+        }
+
+        .honor-section {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            font-style: italic;
+            color: var(--soft-gray);
+        }
+
+        .candle-icon {
+            display: block;
+            margin: 15px auto;
+            width: 12px;
+            height: 12px;
+            background: #ffd700;
+            border-radius: 50%;
+            box-shadow: 0 0 15px #ffcc00, 0 0 30px #ffcc00;
+            animation: flicker 1.5s infinite alternate;
+        }
+
+        @keyframes flicker {
+            0% { transform: scale(1); opacity: 0.6; }
+            100% { transform: scale(1.3); opacity: 1; }
+        }
+
+        .signature-container {
+            margin-top: 40px;
+            text-align: right;
+            border-top: 1px double #eee;
+            padding-top: 20px;
+        }
+
+        .signature-text {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 1.2rem;
+            color: var(--deep-blue);
+            letter-spacing: 1px;
+        }
+
+        .sparkle {
+            color: var(--accent-gold);
+            font-style: normal;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="emblem">🪶</div>
+        <h1><b></b><center></center> Feliz día de San Valentín Familia </center></b></h1>
+        
+        <div class="content">
+            <p>
+                San Valentín no es solo una fecha para enamorados; es el día para honrar el amor más sólido que existe: <strong>la familia</strong>. Ese lazo inquebrantable forjado con respeto, paciencia y apoyo incondicional.
+            </p>
+            <p>
+                Hoy celebramos a los que estamos aquí, manteniendo viva nuestra historia, pero también guardamos un silencio sagrado por <strong>quienes ya no están físicamente</strong>. 
+            </p>
+        </div>
+
+        <div class="honor-section">
+            <div class="candle-icon"></div>
+            <p>
+                "Su luz no se apagó, solo se volvió parte de nuestro camino. Su legado es nuestro mapa y su recuerdo nuestro hogar."
+            </p>
+        </div>
+
+        <div class="signature-container">
+            <div class="signature-text">
+                Att: <strong>L.A.L.M</strong> <span class="sparkle">✨</span>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
