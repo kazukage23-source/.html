@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lealtad & Hermandad</title>
+    <style>
+        /* Paleta Profesional: Azul Profundo y Oro */
+        :root {
+            --navy: #0f172a;
+            --gold: #b8860b;
+            --gold-light: #f1c40f;
+            --slate: #f8fafc;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        /* Efecto de Vidrio Esmerilado */
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 3rem;
+            max-width: 450px;
+            text-align: center;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            display: block;
+            filter: drop-shadow(0 0 10px rgba(184, 134, 11, 0.5));
+        }
+
+        h1 {
+            color: var(--gold);
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            color: var(--slate);
+            font-size: 1.1rem;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        .highlight {
+            color: var(--gold-light);
+            font-weight: 600;
+        }
+
+        .divider {
+            height: 2px;
+            width: 50px;
+            background: var(--gold);
+            margin: 2rem auto;
+            border-radius: 2px;
+        }
+
+        .btn {
+            background: transparent;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: var(--gold);
+            color: var(--navy);
+            box-shadow: 0 0 20px rgba(184, 134, 11, 0.4);
+        }
+
+        footer {
+            margin-top: 2rem;
+            color: rgba(248, 250, 252, 0.5);
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <span class="icon">🤝</span>
+        <h1>Brotherhood</h1>
+        <div class="divider"></div>
+        <p>
+            En este 14 de febrero, celebro la <span class="highlight">lealtad</span> que nos une. 
+            Más que un amigo, eres ese hermano que la vida puso en el camino para hacer las cosas más fáciles (y divertidas).
+        </p>
+        <p>Gracias por la constancia y por estar firme siempre.</p>
+        
+        <button class="btn" onclick="celebrate()">Salud por eso, Bro</button>
+
+        <footer>EST. 2026 • Sin límites</footer>
+    </div>
+
+    <script>
+        function celebrate() {
+            alert('¡Eso es! La hermandad es primero. Un abrazo fuerte, hermano.');
+        }
+    </script>
+
+</body>
+</html>
