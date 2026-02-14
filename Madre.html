@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para mi amada Mamá - Liliana Mejía</title>
+    <style>
+        :root {
+            --soft-pink: #fde8ed;
+            --rose-gold: #b76e79;
+            --deep-plum: #4a2c3a;
+            --light-cream: #fdfcfc;
+            --gold-accent: #d4af37; /* Un dorado suave para acentos */
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(to bottom right, var(--soft-pink), var(--light-cream));
+            font-family: 'Playfair Display', serif; /* Una fuente elegante y cálida */
+            color: var(--deep-plum);
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .card-mom {
+            background: var(--light-cream);
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 500px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInScale 1.5s ease-out forwards;
+            border: 1px solid rgba(183, 110, 121, 0.2); /* Borde sutil */
+        }
+
+        @keyframes fadeInScale {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* Pequeños detalles decorativos */
+        .card-mom::before, .card-mom::after {
+            content: '';
+            position: absolute;
+            background: radial-gradient(circle, var(--rose-gold) 0%, transparent 70%);
+            opacity: 0.1;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .card-mom::before { top: -20px; left: -20px; animation: floatEffect 5s ease-in-out infinite alternate; }
+        .card-mom::after { bottom: -20px; right: -20px; animation: floatEffect 5s ease-in-out 1s infinite alternate; }
+
+        @keyframes floatEffect {
+            from { transform: translate(0, 0); }
+            to { transform: translate(10px, 10px); }
+        }
+
+        .header-title {
+            font-family: 'Dancing Script', cursive; /* Fuente script para un toque personal */
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: var(--rose-gold);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+            line-height: 1.1;
+        }
+
+        .mom-name {
+            font-size: 3.2rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: var(--deep-plum);
+            letter-spacing: -1px;
+        }
+
+        .message-body {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            margin-bottom: 35px;
+            text-align: center; /* Alineación justificada puede ser demasiado formal aquí */
+            color: #555;
+            font-weight: 300;
+        }
+
+        .signature-son {
+            margin-top: 30px;
+            font-family: 'Dancing Script', cursive; /* Misma fuente script para la firma */
+            font-size: 1.8rem;
+            color: var(--rose-gold);
+            text-shadow: 1px 1px 1px rgba(0,0,0,0.05);
+        }
+
+        .small-text {
+            display: block;
+            font-size: 0.9rem;
+            margin-top: 5px;
+            color: var(--soft-gray);
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="card-mom">
+        <h2 class="header-title">Para mi amada mamá</h2>
+        <div class="mom-name">Liliana Mejia</div>
+        
+        <div class="message-body">
+            <p>
+                Mamá, en este día especial, quiero decirte que eres la persona más importante de mi vida. 
+                Tu luz me inspira, tu fuerza me guía y tu bondad me enseña cada día.
+            </p>
+            <p>
+                Gracias por tus abrazos, tus consejos, por ser mi roca incondicional y mi primer amor. 
+                Eres mi heroína, mi cómplice, mi amiga. Cada recuerdo a tu lado es un tesoro.
+            </p>
+            <p>
+                ¡Feliz San Valentín, mamá! Te amo con todo mi corazón.
+            </p>
+        </div>
+        
+        <div class="signature-son">
+            Att: Tu Hijo Empachado <span style="font-size: 1.5rem; vertical-align: middle;">❤️</span>
+        </div>
+    </div>
+
+</body>
+</html>
