@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestro Cosmos de Amor</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: radial-gradient(circle at center, #1a0033 0%, #000000 100%);
+            color: white;
+            font-family: 'Georgia', serif;
+        }
+
+        /* Estrellas de fondo */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        /* Contenedor del Cosmos */
+        #cosmos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            perspective: 1000px;
+        }
+
+        /* Planetas/Palabras */
+        .word-planet {
+            position: absolute;
+            padding: 15px 25px;
+            border-radius: 50px;
+            background: rgba(255, 105, 180, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 20px rgba(255, 182, 193, 0.5);
+            cursor: pointer;
+            transition: transform 0.3s;
+            user-select: none;
+        }
+
+        /* Ositos Cariñosos (Placeholder) */
+        .osito {
+            position: absolute;
+            font-size: 3rem;
+            filter: drop-shadow(0 0 10px white);
+        }
+
+        .controls {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="stars" id="starField"></div>
+
+    <div id="cosmos">
+        </div>
+
+    <div class="controls">
+        <label>🎶 Música Italiana: </label>
+        <audio id="bgMusic" controls loop>
+            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+            Tu navegador no soporta audio.
+        </audio>
+    </div>
+
+    <script>
+        const words = ["Te Amo", "Eres mi Sol", "Siempre Juntos", "Eternidad", "Cariño", "Ternura", "Passione"];
+        const ositos = ["🧸", "💖", "🌈", "☁️"];
+        const cosmos = document.getElementById('cosmos');
+
+        // Crear Estrellas
+        const starField = document.getElementById('starField');
+        for (let i = 0; i < 200; i++) {
+            const star = document.createElement('div');
+            star.style.position = 'absolute';
+            star.style.width = Math.random() * 3 + 'px';
+            star.style.height = star.style.width;
+            star.style.background = 'white';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.borderRadius = '50%';
+            star.style.opacity = Math.random();
+            starField.appendChild(star);
+        }
+
+        // Crear Palabras Planetas y Ositos
+        const elements = [...words, ...ositos];
+
+        elements.forEach((text, index) => {
+            const el = document.createElement('div');
+            if (words.includes(text)) {
+                el.className = 'word-planet';
+            } else {
+                el.className = 'osito';
+            }
+            el.innerText = text;
+            
+            // Posición inicial aleatoria
+            let x = Math.random() * (window.innerWidth - 100);
+            let y = Math.random() * (window.innerHeight - 100);
+            
+            el.style.left = x + 'px';
+            el.style.top = y + 'px';
+            
+            cosmos.appendChild(el);
+
+            // Animación de flotación suave
+            animateFloat(el);
+        });
+
+        function animateFloat(el) {
+            let posX = parseFloat(el.style.left);
+            let posY = parseFloat(el.style.top);
+            let speedX = (Math.random() - 0.5) * 2;
+            let speedY = (Math.random() - 0.5) * 2;
+
+            function move() {
+                posX += speedX;
+                posY += speedY;
+
+                // Rebotar en los bordes
+                if (posX < 0 || posX > window.innerWidth - 100) speedX *= -1;
+                if (posY < 0 || posY > window.innerHeight - 100) speedY *= -1;
+
+                el.style.left = posX + 'px';
+                el.style.top = posY + 'px';
+                requestAnimationFrame(move);
+            }
+            move();
+        }
+
+        // Interacción con el mouse para el "Cosmos"
+        document.addEventListener('mousemove', (e) => {
+            const moveX = (e.clientX - window.innerWidth / 2) / 50;
+            const moveY = (e.clientY - window.innerHeight / 2) / 50;
+            cosmos.style.transform = `rotateY(${moveX}deg) rotateX(${-moveY}deg)`;
+        });
+    </script>
+</body>
+</html>
